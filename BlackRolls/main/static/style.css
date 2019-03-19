@@ -40,7 +40,7 @@
 }
 
 html, body {
-
+    background-color: hsl(0, 0%, 13%);
 }
 
 header {
@@ -99,25 +99,25 @@ header {
 
     text-align: center;
 
-    background-color: #C83A2E;
+    background-color: hsl(0, 0%, 13%);
 }
 
 .header-warning strong {
     margin-bottom: 10px;
 
-    color: #EDE0CD;
+    color: #FFFFFF;
     font-size: 1.5rem;
     font-weight: 400;
 }
 
 .header-warning span {
-    color: #EDE0CD;
+    color: #FFFFFF;
     font-size: 1rem;
     font-weight: 300;
 }
 
 .header-warning span a {
-    color: #EDE0CD;
+    color: #FFFFFF;
     font-size: 1rem;
     font-weight: 400;
 }
@@ -140,12 +140,12 @@ header {
     display: flex;
     flex-direction: column !important;
 
-    border: 2px solid #C83A2E;
+    border: 2px solid #FFFFFF;
     border-radius: 24px;
 }
 
 .header-info .logo span {
-    color: #C83A2E;
+    color: #FFFFFF;
     font-size: 3rem;
     font-weight: 700;
     text-align: center;
@@ -153,7 +153,7 @@ header {
 }
 
 .header-info .title {
-    color: #EDE0CD;
+    color: #FFFFFF;
     font-size: 4rem;
     font-weight: 700;
     text-align: center;
@@ -162,7 +162,7 @@ header {
 }
 
 .header-info .subtitle {
-    color: #C83A2E;
+    color: #FFFFFF;
     font-size: 1.75rem;
     font-weight: 700;
     text-align: center;
@@ -183,7 +183,7 @@ header {
 .food-kind-title {
     margin-bottom: 50px;
 
-    color: hsl(0, 0%, 13%);
+    color: #FFFFFF;
     font-size: 3rem;
     font-weight: 700;
     text-align: center;
@@ -202,7 +202,7 @@ header {
     align-items: center;
     justify-content: center;
 
-    color: #EDE0CD;
+    color: #FFFFFF;
 
     border-radius: 20px;
     background-color: #C83A2E;
@@ -212,12 +212,14 @@ header {
     overflow: hidden;
 
     grid-area: image;
+
+    background-color: #FFFFFF;
 }
 
 .food-card .image img {
-    margin: 0 auto;
+    margin: 15px auto 0 auto;
     width: auto;
-    height: 100%;
+    height: 80%;
 
     display: block;
 }
@@ -232,7 +234,7 @@ header {
 }
 
 .food-card .title h6 {
-    color: hsl(0, 0%, 13%);
+    color: #FFFFFF;
     font-size: 1.35rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -248,7 +250,7 @@ header {
 }
 
 .food-card .description p {
-    color: hsl(0, 0%, 29%);
+    color: #FFFFFF;
     font-size: 1rem;
     font-weight: 300;
 }
@@ -266,7 +268,7 @@ header {
 }
 
 .food-card .cost span {
-    color: hsl(0, 0%, 13%);
+    color: #FFFFFF;
     font-size: 1.25rem;
     font-weight: 400;
 }
@@ -274,7 +276,7 @@ header {
 .food-card .cost span::after {
     content: ' ₽';
 
-    color: hsl(0, 0%, 13%);
+    color: #FFFFFF;
     font-size: 0.9rem;
     font-weight: 400;
 }
@@ -313,11 +315,11 @@ footer {
     justify-content: center;
     align-items: center;
 
-    background-color: hsl(0, 0%, 13%);
+    background-color: #C83A2E;
 }
 
 footer .phone-link {
-    color: #EDE0CD;
+    color: #FFFFFF;
     font-size: 1.1rem;
     font-weight: 400;
     text-decoration: none;

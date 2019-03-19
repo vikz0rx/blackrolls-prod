@@ -86,4 +86,5 @@ local_settings.py
 .env
 .vscode
 venv
-BlackRolls/main/static
+BlackRolls/main/static/admin
+BlackRolls/main/static/rest_framework
