@@ -1,0 +1,146 @@
+{% load staticfiles %}
+
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="Ресторан доставки роллов и пиццы в городе Тюмень. Закажите еду с доставкой домой или в офис по выгодной цене.">
+        <meta name="keywords" content="суши, роллы, пицца, доставка, еда, Тюмень">
+        <meta name="author" content="vikz0rx@gmail.com">
+
+        <title>BLACKROLLS - Доставка роллов и пиццы в Тюмени</title>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'reset.css' %}">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <header>
+            <video class="header-video" loop autoplay playsinline muted>
+                <source src="http://127.0.0.1/static/sushi-background.mp4" />
+            </video>
+            <div class="header-overlay"></div>
+            <div class="header-info">
+                <div class="logo">
+                    <span>黒</span>
+                    <span>寿</span>
+                    <span>司</span>
+                </div>
+                <h2 class="title">Blackrolls</h2>
+                <h1 class="subtitle">Доставка пиццы и роллов<br />в Тюмени</h1>
+            </div>
+            <div class="header-warning">
+                <strong>Уважаемые посетители!</strong>
+                <span>В данный момент, заказ на доставки возможен только по телефону. Приносим извинения за предоставленные неудобства<br /><br /><a href="tel:">+7 (3452) 616-777</a></span>
+            </div>
+        </header>
+        <section class="menu">
+            <article class="food-kind">
+                <h2 class="food-kind-title">Роллы</h2>
+                <div class="menu-grid">
+                    {% for item in sushi %}
+                        <div class="food-card">
+                            {% if item.is_hot %}
+                                <div class="is-hot">
+                                    <i class="fas fa-pepper-hot"></i>
+                                </div>
+                            {% endif %}
+                            <div class="image">
+                                <img src="{{ item.image.url }}" alt="{{ item.title }}" />
+                            </div>
+                            <div class="title">
+                                <h6>{{ item.title }}</h6>
+                            </div>
+                            <div class="description">
+                                <p>
+                                    {% comment %} {{ item.description }}
+                                    <br /><br /> {% endcomment %}
+                                    Вес: {{ item.weight }} гр.
+                                </p>
+                            </div>
+                            <div class="cost">
+                                <span>{{ item.cost }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </article>
+            <article class="food-kind">
+                <h2 class="food-kind-title">Роллы Темпура</h2>
+                <div class="menu-grid">
+                    {% for item in sushi_tempura %}
+                        <div class="food-card">
+                            <div class="image">
+                                <img src="{{ item.image.url }}" alt="{{ item.title }}" />
+                            </div>
+                            <div class="title">
+                                <h6>{{ item.title }}</h6>
+                            </div>
+                            <div class="description">
+                                <p>
+                                    {% comment %} {{ item.description }}
+                                    <br /><br /> {% endcomment %}
+                                    Вес: {{ item.weight }} гр.
+                                </p>
+                            </div>
+                            <div class="cost">
+                                <span>{{ item.cost }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </article>
+            <article class="food-kind">
+                <h2 class="food-kind-title">Пицца</h2>
+                <div class="menu-grid">
+                    {% for item in pizza %}
+                        <div class="food-card">
+                            <div class="image">
+                                <img src="{{ item.image.url }}" alt="{{ item.title }}" />
+                            </div>
+                            <div class="title">
+                                <h6>{{ item.title }}</h6>
+                            </div>
+                            <div class="description">
+                                <p>
+                                    {% comment %} {{ item.description }}
+                                    <br /><br /> {% endcomment %}
+                                    Вес: {{ item.weight }} гр.
+                                </p>
+                            </div>
+                            <div class="cost">
+                                <span>{{ item.cost }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </article>
+            <article class="food-kind">
+                <h2 class="food-kind-title">Напитки</h2>
+                <div class="menu-grid">
+                    {% for item in drinks %}
+                        <div class="food-card">
+                            <div class="image">
+                                <img src="{{ item.image.url }}" alt="{{ item.title }}" />
+                            </div>
+                            <div class="title">
+                                <h6>{{ item.title }}</h6>
+                            </div>
+                            <div class="description">
+                                <p>Объем: {{ item.weight }} мл.</p>
+                            </div>
+                            <div class="cost">
+                                <span>{{ item.cost }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </article>
+        </section>
+        <footer>
+            <a href="tel:" class="phone-link">Телефон для заказа<br />+7 (3452) 616-777</a>
+        </footer>
+    </body>
+</html>
