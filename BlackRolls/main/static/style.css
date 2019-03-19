@@ -295,8 +295,8 @@ header {
         "description"
         "cost";
 
-    background-color: #FFFFFF;
-    /* border-radius: 5px;
+    /* background-color: #FFFFFF;
+    border-radius: 5px;
     box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, .2); */
 
     cursor: default;
@@ -308,7 +308,7 @@ footer {
     z-index: 2;
 
     width: 100%;
-    height: 50px;
+    height: 75px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -318,7 +318,7 @@ footer {
 
 footer .phone-link {
     color: #EDE0CD;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 400;
     text-decoration: none;
 }
