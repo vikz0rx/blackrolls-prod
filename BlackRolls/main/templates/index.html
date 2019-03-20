@@ -17,6 +17,12 @@
         <link rel="stylesheet" href="{% static 'style.css' %}">
     </head>
     <body>
+        <aside class="page-loading-overlay">
+            <span class="caption">Загружаемся...</span>
+            <span class="spinner">
+                <i class="fas fa-circle-notch fa-spin"></i>
+            </span>
+        </aside>
         <header>
             <video class="header-video" loop autoplay playsinline muted>
                 <source src="http://142.93.152.55/static/sushi-background.mp4" />
@@ -33,18 +39,33 @@
             </div>
             <div class="header-warning">
                 <strong>Уважаемые посетители!</strong>
-                <span>В данный момент, заказ на доставки возможен только по телефону. Приносим извинения за предоставленные неудобства<br /><br /><a href="tel:+73452616777">+7 (3452) 616-777</a></span>
+                <span>В данный момент, заказ доставки возможен только по телефону. Приносим извинения за предоставленные неудобства.<br /><br /><a href="tel:+73452616777">+7 (3452) 616-777</a></span>
             </div>
         </header>
         <section class="menu">
             <article class="food-kind">
-                <h2 class="food-kind-title">Роллы</h2>
+                <h2 class="food-kind-title">Черные роллы</h2>
                 <div class="menu-grid">
-                    {% for item in sushi %}
+                    {% for item in sushi_black %}
                         <div class="food-card">
+                            <div class="is-black">
+                                BLACK
+                            </div>
                             {% if item.is_hot %}
-                                <div class="is-hot">
-                                    <i class="fas fa-pepper-hot"></i>
+                                {% if item.cost_on_sale %}
+                                    <div class="is-hot" style="right: 72.5px;">
+                                        <i class="fas fa-pepper-hot"></i>
+                                    </div>
+                                {% else %}
+                                    <div class="is-hot" style="right: 27.5px;">
+                                        <i class="fas fa-pepper-hot"></i>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                            {% if item.cost_on_sale %}
+                                <div class="on-sale" style="right: 27.5px;">
+                                    {% comment %} {{ item.get_sale_amount }} {% endcomment %}
+                                    50
                                 </div>
                             {% endif %}
                             <div class="image">
@@ -55,13 +76,65 @@
                             </div>
                             <div class="description">
                                 <p>
-                                    {% comment %} {{ item.description }}
-                                    <br /><br /> {% endcomment %}
+                                    {{ item.description }}
+                                    <br /><br />
                                     Вес: {{ item.weight }} гр.
                                 </p>
                             </div>
                             <div class="cost">
-                                <span>{{ item.cost }}</span>
+                                {% if item.cost_on_sale  %}
+                                    <span style="text-decoration: line-through; margin-right: 10px;">{{ item.cost }}</span>
+                                    <span>{{ item.cost_on_sale }}</span>
+                                {% else %}
+                                    <span>{{ item.cost }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </article>
+            <article class="food-kind">
+                <h2 class="food-kind-title">Роллы</h2>
+                <div class="menu-grid">
+                    {% for item in sushi %}
+                        <div class="food-card">
+                            {% if item.is_hot %}
+                                {% if item.cost_on_sale %}
+                                    <div class="is-hot" style="right: 27.5px;">
+                                        <i class="fas fa-pepper-hot"></i>
+                                    </div>
+                                {% else %}
+                                    <div class="is-hot">
+                                        <i class="fas fa-pepper-hot"></i>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                            {% if item.cost_on_sale %}
+                                <div class="on-sale">
+                                    {% comment %} {{ item.get_sale_amount }} {% endcomment %}
+                                    50
+                                </div>
+                            {% endif %}
+                            <div class="image">
+                                <img src="{{ item.image.url }}" alt="{{ item.title }}" />
+                            </div>
+                            <div class="title">
+                                <h6>{{ item.title }}</h6>
+                            </div>
+                            <div class="description">
+                                <p>
+                                    {{ item.description }}
+                                    <br /><br />
+                                    Вес: {{ item.weight }} гр.
+                                </p>
+                            </div>
+                            <div class="cost">
+                                {% if item.cost_on_sale  %}
+                                    <span style="text-decoration: line-through; margin-right: 10px;">{{ item.cost }}</span>
+                                    <span>{{ item.cost_on_sale }}</span>
+                                {% else %}
+                                    <span>{{ item.cost }}</span>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}
@@ -72,6 +145,23 @@
                 <div class="menu-grid">
                     {% for item in sushi_tempura %}
                         <div class="food-card">
+                            {% if item.is_hot %}
+                                {% if item.cost_on_sale %}
+                                    <div class="is-hot" style="right: 27.5px;">
+                                        <i class="fas fa-pepper-hot"></i>
+                                    </div>
+                                {% else %}
+                                    <div class="is-hot">
+                                        <i class="fas fa-pepper-hot"></i>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                            {% if item.cost_on_sale %}
+                                <div class="on-sale">
+                                    {% comment %} {{ item.get_sale_amount }} {% endcomment %}
+                                    50
+                                </div>
+                            {% endif %}
                             <div class="image">
                                 <img src="{{ item.image.url }}" alt="{{ item.title }}" />
                             </div>
@@ -80,13 +170,18 @@
                             </div>
                             <div class="description">
                                 <p>
-                                    {% comment %} {{ item.description }}
-                                    <br /><br /> {% endcomment %}
+                                    {{ item.description }}
+                                    <br /><br />
                                     Вес: {{ item.weight }} гр.
                                 </p>
                             </div>
                             <div class="cost">
-                                <span>{{ item.cost }}</span>
+                                {% if item.cost_on_sale  %}
+                                    <span style="text-decoration: line-through; margin-right: 10px;">{{ item.cost }}</span>
+                                    <span>{{ item.cost_on_sale }}</span>
+                                {% else %}
+                                    <span>{{ item.cost }}</span>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}
@@ -97,6 +192,23 @@
                 <div class="menu-grid">
                     {% for item in pizza %}
                         <div class="food-card">
+                            {% if item.is_hot %}
+                                {% if item.cost_on_sale %}
+                                    <div class="is-hot" style="right: 27.5px;">
+                                        <i class="fas fa-pepper-hot"></i>
+                                    </div>
+                                {% else %}
+                                    <div class="is-hot">
+                                        <i class="fas fa-pepper-hot"></i>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                            {% if item.cost_on_sale %}
+                                <div class="on-sale">
+                                    {% comment %} {{ item.get_sale_amount }} {% endcomment %}
+                                    50
+                                </div>
+                            {% endif %}
                             <div class="image">
                                 <img src="{{ item.image.url }}" alt="{{ item.title }}" />
                             </div>
@@ -105,13 +217,18 @@
                             </div>
                             <div class="description">
                                 <p>
-                                    {% comment %} {{ item.description }}
-                                    <br /><br /> {% endcomment %}
-                                    Вес: {{ item.weight }} гр.
+                                    {{ item.description }}
+                                    <br /><br />
+                                    30 сантиметров
                                 </p>
                             </div>
                             <div class="cost">
-                                <span>{{ item.cost }}</span>
+                                {% if item.cost_on_sale  %}
+                                    <span style="text-decoration: line-through; margin-right: 10px;">{{ item.cost }}</span>
+                                    <span>{{ item.cost_on_sale }}</span>
+                                {% else %}
+                                    <span>{{ item.cost }}</span>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}
@@ -122,6 +239,23 @@
                 <div class="menu-grid">
                     {% for item in drinks %}
                         <div class="food-card">
+                            {% if item.is_hot %}
+                                {% if item.cost_on_sale %}
+                                    <div class="is-hot" style="right: 27.5px;">
+                                        <i class="fas fa-pepper-hot"></i>
+                                    </div>
+                                {% else %}
+                                    <div class="is-hot">
+                                        <i class="fas fa-pepper-hot"></i>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                            {% if item.cost_on_sale %}
+                                <div class="on-sale">
+                                    {% comment %} {{ item.get_sale_amount }} {% endcomment %}
+                                    50
+                                </div>
+                            {% endif %}
                             <div class="image">
                                 <img src="{{ item.image.url }}" alt="{{ item.title }}" />
                             </div>
@@ -129,10 +263,15 @@
                                 <h6>{{ item.title }}</h6>
                             </div>
                             <div class="description">
-                                <p>Объем: {{ item.weight }} мл.</p>
+                                <p>{{ item.weight }} мл.</p>
                             </div>
                             <div class="cost">
-                                <span>{{ item.cost }}</span>
+                                {% if item.cost_on_sale  %}
+                                    <span style="text-decoration: line-through; margin-right: 10px;">{{ item.cost }}</span>
+                                    <span>{{ item.cost_on_sale }}</span>
+                                {% else %}
+                                    <span>{{ item.cost }}</span>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}

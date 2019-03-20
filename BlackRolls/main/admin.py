@@ -13,4 +13,4 @@ class FoodAdmin(admin.ModelAdmin):
 
     image_tag.short_description = ''
 
-    list_display = ('image_tag', 'kind', 'title', 'cost', 'weight', )
+    list_display = ('image_tag', 'kind', 'title', 'cost', 'cost_on_sale', 'weight', )

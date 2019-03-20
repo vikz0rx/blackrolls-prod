@@ -43,6 +43,47 @@ html, body {
     background-color: hsl(0, 0%, 13%);
 }
 
+body {
+    position: relative;
+}
+
+.page-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: hsl(0, 0%, 13%);
+}
+
+.page-loading-overlay .caption {
+    margin-bottom: 30px;
+
+    color: #FFFFFF;
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.page-loading-overlay .spinner {
+
+}
+
+.page-loading-overlay .spinner i {
+    color: #FFFFFF;
+    font-size: 2.5rem;
+}
+
 header {
     position: relative;
     overflow: hidden;
@@ -190,6 +231,24 @@ header {
     text-transform: uppercase;
 }
 
+.food-card .is-black {
+    position: absolute;
+    top: -17.5px;
+    right: -17.5px;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #FFFFFF;
+
+    border-radius: 20px;
+    background-color: #000000;
+}
+
 .food-card .is-hot {
     position: absolute;
     top: -17.5px;
@@ -206,6 +265,43 @@ header {
 
     border-radius: 20px;
     background-color: #C83A2E;
+}
+
+.food-card .on-sale {
+    position: absolute;
+    top: -17.5px;
+    right: -17.5px;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 400;
+
+    border-radius: 20px;
+    background-color: #C83A2E;
+}
+
+.food-card .on-sale::before {
+    content: '-';
+
+    margin-right: 3px;
+}
+
+.food-card .on-sale::after {
+    /* content: ' ₽'; */
+    content: ' %';
+
+    color: #FFFFFF;
+    font-size: 0.7rem;
+    font-weight: 400;
+
+    margin-left: 3px;
 }
 
 .food-card .image {

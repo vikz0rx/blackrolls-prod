@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    $('.page-loading-overlay').fadeOut('slow');
+    $('.header-warning').fadeOut('slow');
     $('footer').fadeOut('slow');
 });
 
