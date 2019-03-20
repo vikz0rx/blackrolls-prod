@@ -1,8 +1,8 @@
-$(document).ready(function() {
+function isPageLoaded(){
     $('.page-loading-overlay').fadeOut('slow');
-    $('.header-warning').fadeOut('slow');
+    
     $('footer').fadeOut('slow');
-});
+}
 
 $(window).scroll(function() {    
     var scroll = $(window).scrollTop();
