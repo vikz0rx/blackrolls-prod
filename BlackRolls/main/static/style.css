@@ -111,6 +111,14 @@ header {
     height: 100%;
 }
 
+.header-image {
+    position: absolute;
+    z-index: 1;
+
+    width: 100%;
+    height: auto;
+}
+
 .header-overlay {
     position: absolute;
     top: 0;
@@ -121,7 +129,7 @@ header {
     height: 100%;
 
     background-color: hsl(0, 0%, 13%);
-    opacity: .85;
+    opacity: .35;
 }
 
 .header-warning {

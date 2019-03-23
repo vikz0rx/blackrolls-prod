@@ -46,9 +46,10 @@
             </span>
         </aside>
         <header>
-            <video class="header-video" loop autoplay playsinline muted>
+            {% comment %} <video class="header-video" loop autoplay playsinline muted>
                 <source src="http://142.93.152.55/static/sushi-background.mp4" />
-            </video>
+            </video> {% endcomment %}
+            <img class="header-image" src="{% static 'background.jpg' %}" alt="" />
             <div class="header-overlay"></div>
             <div class="header-info">
                 <div class="logo">
