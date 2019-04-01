@@ -45,20 +45,17 @@
                 <i class="fas fa-circle-notch fa-spin"></i>
             </span>
         </aside>
-        <header>
+        <header style='background-image: url({% static 'background3.jpg' %})'>
             {% comment %} <video class="header-video" loop autoplay playsinline muted>
                 <source src="http://142.93.152.55/static/sushi-background.mp4" />
             </video> {% endcomment %}
-            <img class="header-image" src="{% static 'background.jpg' %}" alt="" />
-            <div class="header-overlay"></div>
+            {% comment %} <img class="header-image" src="{% static 'background3.jpg' %}" alt="" /> {% endcomment %}
+            {% comment %} <div class="header-overlay"></div> {% endcomment %}
             <div class="header-info">
-                <div class="logo">
-                    <span>黒</span>
-                    <span>寿</span>
-                    <span>司</span>
-                </div>
-                <h2 class="title">Blackrolls</h2>
-                <h1 class="subtitle">Доставка пиццы и роллов<br />в Тюмени</h1>
+                {% comment %} <p class='caption1'><span>Доставка</span><br /><span>Роллов</span></p>
+                <p class='caption2'><span>Доставка</span><br /><span>Пиццы</span></p> {% endcomment %}
+                {% comment %} <h2 class="title">Blackrolls</h2>
+                <h1 class="subtitle">Доставка пиццы и роллов<br />в Тюмени</h1> {% endcomment %}
             </div>
             <div class="header-warning">
                 <strong>Уважаемые посетители!</strong>
