@@ -58,7 +58,7 @@
                 <p class='caption2'><span>Доставка</span><br /><span>Пиццы</span></p> {% endcomment %}
                 <img src="{% static 'logo.png' %}" width="250" style="opacity: .8" alt="logo" />
                 {% comment %} <h2 class="title">Blackrolls</h2> {% endcomment %}
-                <h1 class="subtitle">Доставка пиццы и роллов в Тюмени</h1>
+                <h1 class="subtitle">Круглосуточная доставка<br />пиццы и роллов в Тюмени</h1>
                 <a href="tel:+73452616777" class="phone">+7 (3452) 616-777</a>
                 <a href="https://blackrolls.ru" class="phone">blackrolls.ru</a>
             </div>
@@ -69,6 +69,9 @@
         </header>
         <section class="menu">
             <article class="food-kind">
+                <h2 class="food-kind-title" style="margin-bottom: 10px;">
+                    Официальное открытие 5 апреля!
+                </h2>
                 <h2 class="food-kind-title" style="margin-bottom: 10px;">
                     Акция:
                 </h2>
@@ -258,6 +261,49 @@
                                     <br /><br />
                                     30 сантиметров
                                 </p>
+                            </div>
+                            <div class="cost">
+                                {% if item.cost_on_sale  %}
+                                    <span style="text-decoration: line-through; margin-right: 10px;">{{ item.cost }}</span>
+                                    <span>{{ item.cost_on_sale }}</span>
+                                {% else %}
+                                    <span>{{ item.cost }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </article>
+            <article class="food-kind">
+                <h2 class="food-kind-title">Салаты</h2>
+                <div class="menu-grid">
+                    {% for item in salads %}
+                        <div class="food-card">
+                            {% if item.is_hot %}
+                                {% if item.cost_on_sale %}
+                                    <div class="is-hot" style="right: 27.5px;">
+                                        <i class="fas fa-pepper-hot"></i>
+                                    </div>
+                                {% else %}
+                                    <div class="is-hot">
+                                        <i class="fas fa-pepper-hot"></i>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                            {% if item.cost_on_sale %}
+                                <div class="on-sale">
+                                    {% comment %} {{ item.get_sale_amount }} {% endcomment %}
+                                    50
+                                </div>
+                            {% endif %}
+                            <div class="image">
+                                <img src="{{ item.image.url }}" alt="{{ item.title }}" />
+                            </div>
+                            <div class="title">
+                                <h6>{{ item.title }}</h6>
+                            </div>
+                            <div class="description">
+                                <p>{{ item.weight }} гр.</p>
                             </div>
                             <div class="cost">
                                 {% if item.cost_on_sale  %}
