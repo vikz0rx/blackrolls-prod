@@ -1,8 +1,7 @@
 @media (max-width: 575.98px) {
-    header {
-        background-size: 900px;
-        background-position: center center;
-    }
+    /* header {
+        background-image: url('./background4.jpg');
+    } */
 
     .menu-grid {
         display: grid;
@@ -12,11 +11,6 @@
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
-    header {
-        background-size: 1000px;
-        background-position: center center;
-    }
-
     .menu-grid {
         display: grid;
         grid-gap: 10px;
@@ -25,11 +19,6 @@
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-    header {
-        background-size: 1200px;
-        background-position: center center;
-    }
-
     .menu-grid {
         display: grid;
         grid-gap: 10px;
@@ -38,11 +27,6 @@
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
-    header {
-        background-size: cover;
-        background-position: center center;
-    }
-
     .menu-grid {
         display: grid;
         grid-gap: 10px;
@@ -119,6 +103,8 @@ header {
     align-items: center;
 
     /* background-image: url("https://bit.ly/2CoVZ26"); */
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
 }
 
